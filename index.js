@@ -48,4 +48,11 @@ const listBooks = (array) => {
    }
 }
 
+const deleteBook = (i) => {
+   listedItems = JSON.parse(sessionStorage.getItem('books'))
+   listedItems.splice(i, 1)
+   sessionStorage.setItem('books', JSON.stringify(listedItems))
+   listBooks(listedItems)
+}
+
 window.onload = fetchBooks
