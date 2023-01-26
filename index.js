@@ -51,8 +51,28 @@ const listBooks = (array) => {
 const deleteBook = (i) => {
    listedItems = JSON.parse(sessionStorage.getItem('books'))
    listedItems.splice(i, 1)
-   sessionStorage.setItem('books', JSON.stringify(listedItems))
-   listBooks(listedItems)
+   console.log(listedItems.length)
+   if (listedItems.length > 0) {
+      sessionStorage.setItem('books', JSON.stringify(listedItems))
+      listBooks(listedItems)
+   } else {
+      endReached()
+   }
+}
+
+const endReached = () => {
+   let libraryDOM = document.querySelector("#libraryList")
+   libraryDOM.classList.remove("row-cols-2")
+   libraryDOM.classList.remove("row-cols-md-4")
+   libraryDOM.classList.remove("row-cols-lg-5")
+   libraryDOM.classList.add("flex-column")
+   libraryDOM.classList.add("align-items-center")
+
+   libraryDOM.innerHTML = `
+      <h2 class="display-5 m-4">Hai finito l'elenco!</h2>
+      <h5>E ora che si fa? Giusto per capire!</h5>
+      <p class="m-5"><a href="#" onclick="window.location.reload()">Ricarica la pagina</a></p>
+      `
 }
 
 window.onload = fetchBooks
