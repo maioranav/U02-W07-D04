@@ -36,8 +36,8 @@ const listBooks = (array) => {
                   <p class="text-end bg-dark-subtle text-muted rounded-2 p-1">${array[i].category}</p>
                </div>
                <div class="d-flex justify-content-evenly align-items-center">
-                  <span class="text-bg-danger py-2 px-4 fw-bold rounded-2">${array[i].price.toFixed(2)}€</span>
-                  <button type="button" class="btn btn-primary" onclick="deleteBook(${i})">Skip This</button>
+                  <span class="text-bg-danger py-1 px-3 fw-bold rounded-2">${array[i].price.toFixed(2)}€</span>
+                  <button type="button" class="btn btn-primary" onclick="deleteBook(${i})">Skip</button>
                </div>
             </div>
          </div>
